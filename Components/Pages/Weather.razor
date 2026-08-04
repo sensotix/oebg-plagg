@@ -10,7 +10,7 @@
         This component demonstrates showing data.
     </FluentLabel>
 
-    <FluentDataGrid Items="@forecastsQueryable" ResizableColumns="true" Loading="@(forecastsQueryable==null)">
+    <FluentDataGrid Items="@forecastsQueryable" ResizableColumns="true" AutoFit="true" Loading="@(forecastsQueryable==null)">
         <PropertyColumn Property="@(f => f.Date)" Format="dd.MM.yyyy" Sortable="true" Title="Date" />
         <PropertyColumn Property="@(f => f.TemperatureC)" Sortable="true" Title="Temp. (C)" />
         <PropertyColumn Property="@(f => f.TemperatureF)" Sortable="true" Title="Temp. (F)" />

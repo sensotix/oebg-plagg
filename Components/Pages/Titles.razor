@@ -13,7 +13,7 @@
         This component demonstrates titles from an SQL database.
     </FluentLabel>
 
-    <FluentDataGrid Items="@titlesQueryable" ResizableColumns="true" Loading="@(titlesQueryable==null)">
+    <FluentDataGrid Items="@titlesQueryable" ResizableColumns="true" AutoFit="true" Loading="@(titlesQueryable==null)">
         <PropertyColumn Property="@(t => t.Id)" Sortable="true" Title="ID" />
         <PropertyColumn Property="@(t => t.TitleText)" Sortable="true" Title="Title" />
     </FluentDataGrid>
