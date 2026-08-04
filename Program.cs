@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.FluentUI.AspNetCore.Components;
 using OEBG.PLAGG.Components;
 using OEBG.PLAGG.Data;
 using OEBG.PLAGG.Security;
@@ -17,6 +18,8 @@ builder.WebHost.ConfigureKestrel(options => {
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddFluentUIComponents();
 
 builder.Services.AddCascadingAuthenticationState();
 

@@ -6,37 +6,25 @@
 
 <PageTitle>Titles</PageTitle>
 
-<h1>Titles</h1>
+<FluentStack Orientation="Orientation.Vertical" VerticalGap="16">
+    <h1>Titles</h1>
 
-<p>This component demonstrates titles from an SQL database.</p>
+    <FluentLabel Typo="Typography.Body">
+        This component demonstrates titles from an SQL database.
+    </FluentLabel>
 
-@if (titles == null) {
-    <p><em>Loading...</em></p>
-}
-else {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th aria-label="Title">Title</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var title in titles) {
-                <tr>
-                    <td>@title.Id</td>
-                    <td>@title.TitleText</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+    <FluentDataGrid Items="@titlesQueryable" ResizableColumns="true" Loading="@(titlesQueryable==null)">
+        <PropertyColumn Property="@(t => t.Id)" Sortable="true" Title="ID" />
+        <PropertyColumn Property="@(t => t.TitleText)" Sortable="true" Title="Title" />
+    </FluentDataGrid>
+</FluentStack>
 
 @code {
-    private Title[]? titles;
+    private IQueryable<Title>? titlesQueryable;
 
     protected override async Task OnInitializedAsync() {
         await using var context = await DbContextFactory.CreateDbContextAsync();
-        titles = await context.Titles.AsNoTracking().ToArrayAsync();
+        var titles = await context.Titles.AsNoTracking().ToArrayAsync();
+        titlesQueryable = titles.AsQueryable();
     }
 }
