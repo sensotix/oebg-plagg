@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace OEBG_PLAGG_POC.Data {
+namespace OEBG.PLAGG.Data {
     public class TitlesDbContext(DbContextOptions<TitlesDbContext> options) : DbContext(options) {
         public DbSet<Title> Titles => Set<Title>();
 

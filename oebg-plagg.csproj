@@ -4,7 +4,9 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-OEBG_PLAGG_POC-1cb85ef2-9953-41b4-912a-c128b8d95445</UserSecretsId>
+    <AssemblyName>oebg-plagg</AssemblyName>
+    <RootNamespace>OEBG.PLAGG</RootNamespace>
+    <UserSecretsId>aspnet-oebg-plagg-1cb85ef2-9953-41b4-912a-c128b8d95445</UserSecretsId>
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
   </PropertyGroup>
 

@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
-using OEBG_PLAGG_POC.Components;
-using OEBG_PLAGG_POC.Data;
-using OEBG_PLAGG_POC.Security;
+using OEBG.PLAGG.Components;
+using OEBG.PLAGG.Data;
+using OEBG.PLAGG.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 

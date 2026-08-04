@@ -5,7 +5,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://oebg-plagg-poc.dev.localhost:5046",
+      "applicationUrl": "http://oebg-plagg.dev.localhost:5046",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -14,7 +14,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://oebg-plagg-poc.dev.localhost:7279;http://oebg-plagg-poc.dev.localhost:5046",
+      "applicationUrl": "https://oebg-plagg.dev.localhost:7279;http://oebg-plagg.dev.localhost:5046",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

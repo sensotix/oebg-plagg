@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OEBG_PLAGG_POC.Data {
+namespace OEBG.PLAGG.Data {
     [Table("Titles", Schema = "dbo")]
     public class Title {
         [Key]
