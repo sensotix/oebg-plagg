@@ -1,0 +1,42 @@
+﻿@page "/titles"
+@attribute [StreamRendering]
+@using Microsoft.EntityFrameworkCore
+@using OEBG_PLAGG_POC.Data
+@inject IDbContextFactory<TitlesDbContext> DbContextFactory
+
+<PageTitle>Titles</PageTitle>
+
+<h1>Titles</h1>
+
+<p>This component demonstrates titles from an SQL database.</p>
+
+@if (titles == null) {
+    <p><em>Loading...</em></p>
+}
+else {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th aria-label="Title">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var title in titles) {
+                <tr>
+                    <td>@title.Id</td>
+                    <td>@title.TitleText</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Title[]? titles;
+
+    protected override async Task OnInitializedAsync() {
+        await using var context = await DbContextFactory.CreateDbContextAsync();
+        titles = await context.Titles.AsNoTracking().ToArrayAsync();
+    }
+}
