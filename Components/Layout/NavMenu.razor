@@ -1,56 +1,22 @@
-﻿@implements IDisposable
+﻿@inject NavigationManager NavigationManager
 
-@inject NavigationManager NavigationManager
-
-<FluentNavMenu Width="250" Collapsible="true" Title="Navigation">
-    <FluentNavLink Href="" Match="NavLinkMatch.All">
-        Home
-    </FluentNavLink>
-
-    <FluentNavLink Href="counter">
-        Counter
-    </FluentNavLink>
-
-    <FluentNavLink Href="weather">
-        Weather
-    </FluentNavLink>
-
-    <FluentNavLink Href="titles">
-        Titles
-    </FluentNavLink>
-
-    <FluentNavLink Href="auth">
-        Auth Required
-    </FluentNavLink>
+<FluentNav>
+    <FluentNavCategory Title="Main Navigation">
+        <FluentNavItem Href="/" Match="NavLinkMatch.All">Home</FluentNavItem>
+        <FluentNavItem Href="counter">Counter</FluentNavItem>
+        <FluentNavItem Href="weather">Weather</FluentNavItem>
+        <FluentNavItem Href="titles">Titles</FluentNavItem>
+        <FluentNavItem Href="auth">Auth Required</FluentNavItem>
+    </FluentNavCategory>
 
     <AuthorizeView>
         <Authorized>
-            <FluentDivider />
+            <FluentDivider Style="margin: 10px 0;" />
+            <FluentNavSectionHeader>User</FluentNavSectionHeader>
             <div style="padding: 10px; color: var(--neutral-foreground-rest);">
                 <FluentLabel>@context.User.Identity?.Name</FluentLabel>
             </div>
         </Authorized>
     </AuthorizeView>
-</FluentNavMenu>
-
-@code {
-    private string? currentUrl;
-
-    protected override void OnInitialized()
-    {
-        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
-        NavigationManager.LocationChanged += OnLocationChanged;
-    }
-
-    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
-    {
-        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
-        StateHasChanged();
-    }
-
-    public void Dispose()
-    {
-        NavigationManager.LocationChanged -= OnLocationChanged;
-    }
-}
+</FluentNav>
 

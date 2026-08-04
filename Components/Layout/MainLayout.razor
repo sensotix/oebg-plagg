@@ -1,17 +1,21 @@
 ﻿@inherits LayoutComponentBase
 
 <FluentLayout>
-    <FluentHeader>
-        <FluentLabel Typo="Typography.H3" Color="@Color.Custom" CustomColor="white">oebg-plagg</FluentLabel>
-        <FluentSpacer />
-        <FluentLabel Color="@Color.Custom" CustomColor="white">About</FluentLabel>
-    </FluentHeader>
-    <FluentStack Orientation="Orientation.Horizontal">
+    <FluentLayoutItem Area="LayoutArea.Header">
+        <FluentStack Orientation="Orientation.Horizontal" VerticalAlignment="VerticalAlignment.Center" Width="100%" Style="padding: 0 1rem;">
+            <FluentLabel Typo="Typography.H3" Color="@Color.Custom" CustomColor="white">oebg-plagg</FluentLabel>
+            <FluentSpacer />
+            <FluentLabel Color="@Color.Custom" CustomColor="white">About</FluentLabel>
+        </FluentStack>
+    </FluentLayoutItem>
+
+    <FluentLayoutItem Area="LayoutArea.Navigation">
         <NavMenu />
-        <FluentBodyContent>
-            @Body
-        </FluentBodyContent>
-    </FluentStack>
+    </FluentLayoutItem>
+
+    <FluentLayoutItem Area="LayoutArea.Content">
+        @Body
+    </FluentLayoutItem>
 </FluentLayout>
 
 <div id="blazor-error-ui" data-nosnippet>
