@@ -1,6 +1,4 @@
-﻿@inject NavigationManager NavigationManager
-
-<FluentNav>
+﻿<FluentNav>
     <FluentNavCategory Title="Main Navigation">
         <FluentNavItem Href="/" Match="NavLinkMatch.All">Home</FluentNavItem>
         <FluentNavItem Href="counter">Counter</FluentNavItem>
@@ -11,11 +9,11 @@
 
     <AuthorizeView>
         <Authorized>
-            <FluentDivider Style="margin: 10px 0;" />
+            <FluentDivider />
             <FluentNavSectionHeader>User</FluentNavSectionHeader>
-            <div style="padding: 10px; color: var(--neutral-foreground-rest);">
+            <FluentStack Orientation="Orientation.Vertical" Style="padding: 10px;">
                 <FluentLabel>@context.User.Identity?.Name</FluentLabel>
-            </div>
+            </FluentStack>
         </Authorized>
     </AuthorizeView>
 </FluentNav>
